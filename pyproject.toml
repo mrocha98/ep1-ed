@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "ep1-ed"
+version = "0.1.0"
+description = ""
+authors = ["Matheus Rocha <matheus_rocha98@outlook.com>"]
+license = "GPL-3.0"
+
+[tool.poetry.scripts]
+run = "main:script"
+
+[tool.poetry.dependencies]
+python = ">=3.6,<4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+pylint = "^2.7.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
