@@ -7,7 +7,7 @@ class OrderingAlgorithm(Enum):
   SELECTION = 'selection'
   NATIVE = 'native'
 
-def mergesort(v: List):
+def mergesort(v: List[int]):
   if len(v) <= 1: return v
   else:
     m = len(v) // 2
@@ -29,7 +29,7 @@ def merge(e, d):
   r += d[j:]
   return r
 
-def quicksort(v: List):
+def quicksort(v: List[int]):
   if len(v) <= 1: return v
   pivô = v[0]
   iguais  = [x for x in v if x == pivô]
@@ -37,7 +37,7 @@ def quicksort(v: List):
   maiores = [x for x in v if x >  pivô]
   return quicksort(menores) + iguais + quicksort(maiores)
 
-def selection(v: List):
+def selection(v: List[int]):
   r = []
   while v:
     m = min(v)
@@ -45,7 +45,7 @@ def selection(v: List):
     v.remove(m)
   return r
 
-def native(v: List):
+def native(v: List[int]):
   items = v.copy()
   items.sort()
   return items

@@ -2,25 +2,7 @@ from time import time
 
 from ep1_ed.ordering_algorithms import mergesort, quicksort, selection, native, OrderingAlgorithm
 from ep1_ed.utils import generate_source, count_time_spend_with
-
-def print_table_border():
-  # -------------------------------------------
-  pass
-
-def print_table_header():
-  # print_table_border()
-  #   |       time (s)                        |
-  # print_table_border()
-  #   | Mergesort Quicksort Selection Native  |
-  pass
-
-def print_table_row(quantity: int, mergesort_time, quicksort_time, selection_time, native_time):
-  # 2000 | 0.05 0.00 0.40 0.00
-  pass
-
-def print_table_footer():
-  # print_table_border()
-  pass
+from ep1_ed.table import print_table_header, print_table_row, print_table_footer
 
 def main():
   numbers = []
@@ -32,7 +14,7 @@ def main():
   }
   quantity = 0
 
-  # print_table_header()
+  print_table_header()
 
   time_start = time()
   time_execution_limit = time() + 30
@@ -46,6 +28,12 @@ def main():
     spend_time[OrderingAlgorithm.SELECTION] = count_time_spend_with(selection, numbers)
     spend_time[OrderingAlgorithm.NATIVE] = count_time_spend_with(native, numbers)
 
-    # print_table_row(quantity, mergesort_time, quicksort_time, selection_time, native_time)
-  # print_table_footer()
+    print_table_row(
+      quantity,
+      spend_time[OrderingAlgorithm.MERGESORT],
+      spend_time[OrderingAlgorithm.QUICKSORT],
+      spend_time[OrderingAlgorithm.SELECTION],
+      spend_time[OrderingAlgorithm.NATIVE]
+    )
+  print_table_footer()
   print(f'\n\ntime elapsed: {time() - time_start}')
